@@ -47,10 +47,15 @@ Vagrant.configure("2") do |config|
   config.vm.box = "ubuntu/focal64"   # Ubuntu 20.04 LTS
 
   # Port forwarding
-  config.vm.network "forwarded_port",
+  # config.vm.network "forwarded_port",
+  #   guest: 8000,
+  #   host: 8081,
+  #   host_ip: "127.0.0.1"
+
+   config.vm.network "forwarded_port", 
+    host_ip: "127.0.0.1",
     guest: 8080,
-    host: 8081,
-    host_ip: "127.0.0.1"
+    host: 8080
 
   # Provisioning
   config.vm.provision "shell", inline: <<-SHELL
